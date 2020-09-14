@@ -43,7 +43,7 @@ class Triceps extends Component {
 				tri.levelOfDifficulty === 'Advanced'
 			) {
 				return (
-					<Link to={`/tricpes/${tri.exercise}`}>
+					<Link to={`/triceps/${tri.exercise}`}>
 						<li className='triList' key={index}>
 							{tri.exercise}
 						</li>

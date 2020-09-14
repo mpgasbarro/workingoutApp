@@ -32,15 +32,18 @@ class App extends Component {
 		};
 	}
 	componentDidMount() {
-		fetch(`${workoutUrl}`)
-			.then((res) => res.json())
-			.then((json) => {
-				this.setState({ workouts: json });
-			})
-			.catch((err) => {
-				console.error(err);
-			});
+		this.readworkouts()
   }
+  	readworkouts = () => {
+		  fetch(`${workoutUrl}`)
+				.then((res) => res.json())
+				.then((json) => {
+					this.setState({ workouts: json });
+				})
+				.catch((err) => {
+					console.error(err);
+				});
+	  }
 
 	createWorkout = (workout) => {
 		const requestOptions = {
@@ -149,6 +152,7 @@ class App extends Component {
 								<SingleWorkoutPage
 									match={routerProp.match}
 									workoutData={this.state.workouts}
+									readworkouts={this.readworkouts}
 								/>
 							);
 						}}
@@ -169,6 +173,7 @@ class App extends Component {
 								<SingleWorkoutPage
 									match={routerProp.match}
 									workoutData={this.state.workouts}
+									readworkouts = {this.readworkouts}
 								/>
 							);
 						}}
@@ -177,7 +182,12 @@ class App extends Component {
 						exact
 						path='/deltoids'
 						render={() => {
-							return <Deltoids workout={this.state.workouts} />;
+							return (
+								<Deltoids
+									workout={this.state.workouts}
+									
+								/>
+							);
 						}}
 					/>
 					<Route
@@ -188,6 +198,7 @@ class App extends Component {
 								<SingleWorkoutPage
 									match={routerProp.match}
 									workoutData={this.state.workouts}
+									readworkouts={this.readworkouts}
 								/>
 							);
 						}}
@@ -207,6 +218,7 @@ class App extends Component {
 								<SingleWorkoutPage
 									match={routerProp.match}
 									workoutData={this.state.workouts}
+									readworkouts={this.readworkouts}
 								/>
 							);
 						}}
@@ -226,6 +238,7 @@ class App extends Component {
 								<SingleWorkoutPage
 									match={routerProp.match}
 									workoutData={this.state.workouts}
+									readworkouts={this.readworkouts}
 								/>
 							);
 						}}
@@ -245,6 +258,7 @@ class App extends Component {
 								<SingleWorkoutPage
 									match={routerProp.match}
 									workoutData={this.state.workouts}
+									readworkouts={this.readworkouts}
 								/>
 							);
 						}}
@@ -279,28 +293,48 @@ class App extends Component {
 						path='/back/:workout'
 						exact
 						render={(routerProp) => {
-							return <SingleWorkoutPage match={routerProp.match} />;
+							return (
+								<SingleWorkoutPage
+									match={routerProp.match}
+									readworkouts={this.readworkouts}
+								/>
+							);
 						}}
 					/>
 					<Route
 						path='/biceps/:workout'
 						exact
 						render={(routerProp) => {
-							return <SingleWorkoutPage match={routerProp.match} />;
+							return (
+								<SingleWorkoutPage
+									match={routerProp.match}
+									readworkouts={this.readworkouts}
+								/>
+							);
 						}}
 					/>
 					<Route
 						path='/core/:workout'
 						exact
 						render={(routerProp) => {
-							return <SingleWorkoutPage match={routerProp.match} />;
+							return (
+								<SingleWorkoutPage
+									match={routerProp.match}
+									readworkouts={this.readworkouts}
+								/>
+							);
 						}}
 					/>
 					<Route
 						path='/deltoids/:workout'
 						exact
 						render={(routerProp) => {
-							return <SingleWorkoutPage match={routerProp.match} />;
+							return (
+								<SingleWorkoutPage
+									match={routerProp.match}
+									readworkouts={this.readworkouts}
+								/>
+							);
 						}}
 					/>
 	
@@ -308,14 +342,24 @@ class App extends Component {
 						path='/triceps/:workout'
 						exact
 						render={(routerProp) => {
-							return <SingleWorkoutPage match={routerProp.match} />;
+							return (
+								<SingleWorkoutPage
+									match={routerProp.match}
+									readworkouts={this.readworkouts}
+								/>
+							);
 						}}
 					/>
 					<Route
 						path='/pectorals/:workout'
 						exact
 						render={(routerProp) => {
-							return <SingleWorkoutPage match={routerProp.match} />;
+							return (
+								<SingleWorkoutPage
+									match={routerProp.match}
+									readworkouts={this.readworkouts}
+								/>
+							);
 						}}
 					/>
 				</Switch>

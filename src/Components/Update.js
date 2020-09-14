@@ -47,7 +47,6 @@ class Update extends Component {
 		this.setState({ id: '' });
 	};
 	render() {
-		console.log(this.props.match.params);
 		if (this.state.redirect) {
 			return <Redirect to='/'></Redirect>;
 		}
