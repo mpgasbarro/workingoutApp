@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
 import { Redirect } from 'react-router';
+import "./CSS/Delete.css"
 
 let workoutUrl = 'https://immense-earth-33685.herokuapp.com/workout/';
 

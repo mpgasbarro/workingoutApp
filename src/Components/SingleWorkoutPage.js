@@ -38,9 +38,7 @@ class SingleWorkoutPage extends Component {
 						<Button variant='outline-light'>Update</Button>
 					</Link>
 				</span>
-				<div className='deleteButton'>
-							<Delete workouts={this.props.workoutData} match={this.props.match}  readworkouts={this.props.readworkouts} />
-				</div>
+
 				<div className='workoutDetails'>
 					<Youtube
 						className='youtube'
@@ -71,6 +69,13 @@ class SingleWorkoutPage extends Component {
 							</em>
 							{workoutTarget.muscleGroupTwo}
 						</li>
+						<div className='deleteButton'>
+							<Delete
+								workouts={this.props.workoutData}
+								match={this.props.match}
+								readworkouts={this.props.readworkouts}
+							/>
+						</div>
 					</div>
 				</div>
 			</div>

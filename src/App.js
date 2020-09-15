@@ -11,7 +11,7 @@ import Core from './Components/Core';
 import Back from './Components/Back';
 import Create from './Components/Create';
 import Update from './Components/Update';
-import Home from "./Components/Home";
+import Home from './Components/Home';
 import TriPic from './BodyPics/Fotolia_110740617_S-300x300-removebg-preview.png';
 import DeltPic from './BodyPics/Deltoid-Muscle-Breakdown-removebg-preview.png';
 import BiPic from './BodyPics/Fotolia_110740333_S-693x675-removebg-preview.png';
@@ -19,11 +19,7 @@ import CorePic from './BodyPics/abs-abdominals-muscle-group-exercises-removebg-p
 import BackPic from './BodyPics/9959c5efe300f6a073bee02225612ca5-removebg-preview.png';
 import PecPic from './BodyPics/357299_5cd3e9b65db095cd3e9b65db41-removebg-preview.png';
 
-
-
-
-let workoutUrl =
-	'https://immense-earth-33685.herokuapp.com/workout/';
+let workoutUrl = 'https://immense-earth-33685.herokuapp.com/workout/';
 class App extends Component {
 	constructor(props) {
 		super(props);
@@ -32,18 +28,18 @@ class App extends Component {
 		};
 	}
 	componentDidMount() {
-		this.readworkouts()
-  }
-  	readworkouts = () => {
-		  fetch(`${workoutUrl}`)
-				.then((res) => res.json())
-				.then((json) => {
-					this.setState({ workouts: json });
-				})
-				.catch((err) => {
-					console.error(err);
-				});
-	  }
+		this.readworkouts();
+	}
+	readworkouts = () => {
+		fetch(`${workoutUrl}`)
+			.then((res) => res.json())
+			.then((json) => {
+				this.setState({ workouts: json });
+			})
+			.catch((err) => {
+				console.error(err);
+			});
+	};
 
 	createWorkout = (workout) => {
 		const requestOptions = {
@@ -61,20 +57,22 @@ class App extends Component {
 		const requestOptions = {
 			method: 'PATCH',
 			headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(workout),
+			body: JSON.stringify(workout),
 		};
-      
+
 		fetch(`${workoutUrl}${workout.id}`, requestOptions)
-      .then((res) => res.json())
+			.then((res) => res.json())
 			//add logic to select specific game
-      .then((data) => this.setState({ workouts: [...this.state.workouts, data] }));
+			.then((data) =>
+				this.setState({ workouts: [...this.state.workouts, data] })
+			);
 	};
 
 	render() {
 		return (
 			<main className='homepage'>
 				<Header />
-      
+
 				<section className='bodyPartPics'>
 					<Link to='/pectorals'>
 						<img
@@ -132,11 +130,7 @@ class App extends Component {
 					</Link>
 				</section>
 				<Switch>
-          <Route 
-          path="/"
-          component={Home}
-          exact
-          />
+					<Route path='/' component={Home} exact />
 					<Route
 						exact
 						path='/pectorals'
@@ -173,7 +167,7 @@ class App extends Component {
 								<SingleWorkoutPage
 									match={routerProp.match}
 									workoutData={this.state.workouts}
-									readworkouts = {this.readworkouts}
+									readworkouts={this.readworkouts}
 								/>
 							);
 						}}
@@ -182,12 +176,7 @@ class App extends Component {
 						exact
 						path='/deltoids'
 						render={() => {
-							return (
-								<Deltoids
-									workout={this.state.workouts}
-									
-								/>
-							);
+							return <Deltoids workout={this.state.workouts} />;
 						}}
 					/>
 					<Route
@@ -337,7 +326,7 @@ class App extends Component {
 							);
 						}}
 					/>
-	
+
 					<Route
 						path='/triceps/:workout'
 						exact
@@ -363,7 +352,6 @@ class App extends Component {
 						}}
 					/>
 				</Switch>
-			
 			</main>
 		);
 	}

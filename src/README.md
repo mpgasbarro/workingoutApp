@@ -2,7 +2,7 @@
 
 ## Project Description
 
-My app is a library of some of the most common exercises, for specific muscle groups. I want to build an application where the user can comb through a variety of exercises, for each specific muscle group, as well as choose pre-determined workouts, if they so choose. As a user, they will also be able to add to the library themselves, if they so choose. It will include information about the workout and a video tutorial on how to properly perform the exercise.
+My app is a library of some of the most common exercises, for specific muscle groups. I've built an application where the user can comb through a variety of exercises, for each specific muscle group. As a user, they will also be able to add to the library themselves, if they so choose. It will include information about the workout and a video tutorial on how to properly perform the exercise.
 
 ## Wireframes
 
@@ -75,4 +75,4 @@ _**MVP Stretch Goals**_
 
 ## Contribution
 
-This is a solo project presented for evaluation and is not open for outside contributions at this time. However, if you have feature suggestions to improve the usability or functionality of the application, feel free to create an Issue on this GitHub repository. https://github.com/teamscrum2000/font-end-uhhh
+This is a solo project presented for evaluation and is not open for outside contributions at this time. However, if you have feature suggestions to improve the usability or functionality of the application, feel free to create an Issue on this GitHub repository. https://github.com/mpgasbarro/workingoutApp
